@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "sis-led-py"
+version = "0.1.0"
+description = ""
+authors = ["datagutten <datagutten@datagutten.net>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+pillow = "^11.2.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

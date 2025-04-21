@@ -1,0 +1,23 @@
+#/etc/systemd/system/led_clock.service
+# systemctl enable led_clock
+
+[Unit]
+Description=LED clock
+After=network.target
+
+[Install]
+WantedBy=multi-user.target
+
+[Service]
+User=pi
+Group=pi
+Restart=always
+
+ExecStart=/usr/bin/python /home/pi/sis-led-py/sis-led-py/clock.py
+ExecReload=/bin/kill -s HUP $MAINPID
+ExecStop=/bin/kill -s TERM $MAINPID
+
+WorkingDirectory=/home/pi/sis-led-py
+Environment=PYTHONPATH='/home/pi/sis-led-py'
+
+PrivateTmp=true
